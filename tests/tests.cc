@@ -109,7 +109,7 @@ TEST_CASE("Example: No acount exist", "[ex-6]") {
 TEST_CASE("Example: Negative amount passed in", "[ex-7]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
-  REQUIRE_THROWS_AS(atm.WithdrawCash(12345678, 1234, -400.00),
+  REQUIRE_THROWS_AS(atm.WithdrawCash(12345678, 1234, -100.00),
                     std::invalid_argument);
 }
 
