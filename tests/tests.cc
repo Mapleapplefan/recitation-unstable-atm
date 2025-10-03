@@ -73,9 +73,9 @@ TEST_CASE("Example: Print Prompt Ledger", "[ex-3]") {
       "Deposit - Amount: $32000.00, Updated Balance: $72099.90");
   atm.PrintLedger("./prompt.txt", 12345678, 1234);
   REQUIRE(CompareFiles("./ex-1.txt", "./prompt.txt"));
-  }
+}
 
-//REGISTER ACCOUNT TESTS
+// REGISTER ACCOUNT TESTS
 TEST_CASE("Example: Pin already exist", "[ex-4]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
@@ -83,7 +83,6 @@ TEST_CASE("Example: Pin already exist", "[ex-4]") {
   REQUIRE_THROWS_AS(atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30),
                     std::invalid_argument);
 }
-
 
 TEST_CASE("Example: Card_num already exist", "[ex-4]") {
   Atm atm;
@@ -93,8 +92,7 @@ TEST_CASE("Example: Card_num already exist", "[ex-4]") {
                     std::invalid_argument);
 }
 
-
-//WITHDRAW CASH TESTS
+// WITHDRAW CASH TESTS
 TEST_CASE("Example: Withdraw more than balance", "[ex-5]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
@@ -115,7 +113,7 @@ TEST_CASE("Example: Negative amount passed in", "[ex-7]") {
                     std::invalid_argument);
 }
 
-//DEPOSIT CASH TESTS
+// DEPOSIT CASH TESTS
 TEST_CASE("Deposit pin don't exist", "[ex-8]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
@@ -136,13 +134,10 @@ TEST_CASE("Deposit negative amount", "[ex-10]") {
                     std::invalid_argument);
 }
 
-
-//PRINT LEDGER TESTS
+// PRINT LEDGER TESTS
 TEST_CASE("Print Ledger pin + card_num don't exist", "[ex-11]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
   REQUIRE_THROWS_AS(atm.PrintLedger("./prompt.txt", 12345679, 1235),
                     std::invalid_argument);
 }
-
-
